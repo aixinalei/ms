@@ -1,20 +1,20 @@
-#App打包
+##App打包
 ```
 答案：http://jingyan.baidu.com/article/c45ad29c2ffc1e051653e272.html
 ```
-#js基本数据类型
+##js基本数据类型
 ```
 String Number Boolean Object Array Undefined Function Null
 ```
-#什么是闭包
+##什么是闭包
 ```
 有权访问另一个函数内部作用域的变量的函数叫闭包
 ```
-#闭包的作用
+##闭包的作用
 ```
 减少全局变量，使变量私有化！
 ```
-#字符串的常用方法
+##字符串的常用方法
 ```
 例如：					
 var str = "ABC";
@@ -54,7 +54,7 @@ str.toUpperCase();
 结果：ABCABC
 将字符转换成大写
 ```
-#数组的常用方法
+##数组的常用方法
 ```
 push：向数组的末尾增加一项 返回值是数组的新长度
 unshift：向数组开头增加一项 返回值是数组的新长度
@@ -76,7 +76,7 @@ lastIndexOf:返回获取项在数组中出现的最后一次索引
 forEach: 循环遍历数组 参数是一个匿名函数 默认返回为undefined
 map：循环遍历数组 参数是一个匿名函数
 ```
-#js类的使用
+##js类的使用
 ```
 /***定义类***/
 var Class = function(){
@@ -96,40 +96,40 @@ var Class = function(){
 var c = new Class();
 c.Method(); //使用方法
 ```
-#原型链
+##原型链
 ```
 JavaScrip可以采用构造器(constructor)生成一个新的对象,每个构造器都拥有一个prototype属性,而每个通过此构造器生成的对象都有一个指向该构造器原型(prototype)的内部私有的链接(proto),而这个prototype因为是个对象,它也拥有自己的原型,这么一级一级直到原型为null,这就构成了原型链
 ```
-#Object原型指向谁
+##Object原型指向谁
 ```
 每个构造函数内部均有一个prototype原型指针，指向该类型的原型对象C.prototype。原型对象C.prototype中包含一个回指向构造函数的指针constructor。这样就实现了构造函数和原型对象间的双向绑定。每个实例对象内部也包含一个指向原型对象C.prototype的指针。
 ```
-#typeof
+##typeof
 ```
 typeof返回变量的类型
 ```
-#DOM是什么
+##DOM是什么
 ```
 HTML DOM 定义了所有 HTML 元素的对象和属性，以及访问它们的方法。
 换言之，HTML DOM 是关于如何获取、修改、添加或删除 HTML 元素的标准
 ```
-#JQuery常用的方法
+##JQuery常用的方法
 ```
 http://www.css88.com/jqapi-1.9/
 ```
-#find方法是干嘛的
+##find方法是干嘛的
 ```
 方法获得当前元素集合中每个元素的后代、通过选择器、jQuery 对象或元素来筛选
 ```
-#事件冒泡
+##事件冒泡
 ```
 当你使用事件冒泡时，子级元素先触发，父级元素后触发
 ```
-#事件捕获
+##事件捕获
 ```
 当你使用事件捕获时，父级元素先触发，子级元素后触发
 ```
-#CSS3
+##CSS3
 ```
 
 移动 translate3d(value,value,value) 可以改变元素的位置.
@@ -169,18 +169,18 @@ align-content 设置的横向有换行的盒子的纵轴对齐
 align-self 子元素自身的纵轴对齐
 order 设置子元素的排列顺序
 ```
-#canvas
+##canvas
 ```
 https://nts.newbieol.com/classroom/study/327?lid=4238
 ```
-#如何实现Socket.io
+##如何实现Socket.io
 ```
 socket.io 的核心就是这两个函数了，通过 emit 和 on 可以轻松地实现服务器与客户端之间的双向通信
 emit ：用来发射一个事件或者说触发一个事件，第一个参数为事件名，第二个参数为要发送的数据，第三个参数为回调函数（一般省略，如需对方接受到信息后立即得到确认时，则需要用到回调函数）。
 on ：用来监听一个 emit 发射的事件，第一个参数为要监听的事件名，第二个参数为一个匿名函数用来接收对方发来的数据，该匿名函数的第一个参数为接收的数据，若有第二个参数，则为要返回的函数
 connect 事件，当收到对方发来的数据后触发 message 事件（通常为 socket.send() 触发），当对方关闭连接后触发 disconnect 事件
 ```
-#Ajax是干什么用的 jsonp跨域
+##Ajax是干什么用的 jsonp跨域
 ```
 1.ajax和jsonp的调用方式很像，目的一样，都是请求url，然后把服务器返回的数据进行处理，因此jquery和ext等框架都把jsonp作为ajax的一种形式进行了封装；
 2.实质不同
@@ -193,7 +193,7 @@ connect 事件，当收到对方发来的数据后触发 message 事件（通常
 4.jsonp是一种方式或者说非强制性的协议
     ajax也不一定非要用json格式来传递数据
 ```
-#对jquery的ajax进行二次封装
+####对jquery的ajax进行二次封装
 ````
 ** ajax封装 **
 封装时用到的参数：
@@ -239,3 +239,4 @@ reference jquery-1.7.1.js
             });
         }
     });
+```
