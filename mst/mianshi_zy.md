@@ -117,11 +117,9 @@ HTML DOM 定义了所有 HTML 元素的对象和属性，以及访问它们的�
 ```
 http://www.css88.com/jqapi-1.9/
 ```
-<<<<<<< HEAD:mianshi_zy.md
-##JQuery中的find方法是干嘛的
-=======
-# find方法是干嘛的
->>>>>>> 9dbe7db676dd1bba44437e425cb4a5f2b71ec1ae:mst/mianshi_zy.md
+
+# JQuery中的find方法是干嘛的
+
 ```
 方法获得当前元素集合中每个元素的后代、通过选择器、jQuery 对象或元素来筛选
 ```
@@ -173,11 +171,9 @@ align-content 设置的横向有换行的盒子的纵轴对齐
 align-self 子元素自身的纵轴对齐
 order 设置子元素的排列顺序
 ```
-<<<<<<< HEAD:mianshi_zy.md
-##canvas (绘画)
-=======
-# canvas
->>>>>>> 9dbe7db676dd1bba44437e425cb4a5f2b71ec1ae:mst/mianshi_zy.md
+
+# canvas (绘画)
+
 ```
 https://nts.newbieol.com/classroom/study/327?lid=4238
 ```
@@ -188,11 +184,9 @@ emit ：用来发射一个事件或者说触发一个事件，第一个参数为
 on ：用来监听一个 emit 发射的事件，第一个参数为要监听的事件名，第二个参数为一个匿名函数用来接收对方发来的数据，该匿名函数的第一个参数为接收的数据，若有第二个参数，则为要返回的函数
 connect 事件，当收到对方发来的数据后触发 message 事件（通常为 socket.send() 触发），当对方关闭连接后触发 disconnect 事件
 ```
-<<<<<<< HEAD:mianshi_zy.md
-##Ajax和jsonp干什么用的，有什么区别？
-=======
-# Ajax是干什么用的jsonp跨域
->>>>>>> 9dbe7db676dd1bba44437e425cb4a5f2b71ec1ae:mst/mianshi_zy.md
+
+# Ajax和jsonp干什么用的，有什么区别？
+
 ```
 1.ajax和jsonp的调用方式很像，目的一样，都是请求url，然后把服务器返回的数据进行处理，因此jquery和ext等框架都把jsonp作为ajax的一种形式进行了封装；
 2.实质不同
@@ -205,13 +199,10 @@ connect 事件，当收到对方发来的数据后触发 message 事件（通常
 4.jsonp是一种方式或者说非强制性的协议
     ajax也不一定非要用json格式来传递数据
 ```
-<<<<<<< HEAD:mianshi_zy.md
-##对jquery的ajax进行二次封装
-```
-=======
+
 # 对jquery的ajax进行二次封装
-````
->>>>>>> 9dbe7db676dd1bba44437e425cb4a5f2b71ec1ae:mst/mianshi_zy.md
+```
+
 ** ajax封装 **
 封装时用到的参数：
 
@@ -256,28 +247,33 @@ reference jquery-1.7.1.js
             });
         }
     });
-<<<<<<< HEAD:mianshi_zy.md
+
 ```
-##怎么实现分页
+# 怎么实现分页
+
 ```
 1.首先在页面放两个隐藏域，一个是当前页码，一个是总页码，总页码是页面加载完，从后台查询出来后直接附上值的，当前页码是每操作一个，就要对当前页码赋值
 2.写一个页面加载完的function，给总页码和当前页码赋值
 3.抽取的ajax方法，此页面会用到好几次这个方法，所有把它收取了出来，因为页面的数据时通过ajax从后台获取到的，后台返回的是一个List集合
 ```
-##公司总共js脚本总共在多少行代码？
+
+# 公司总共js脚本总共在多少行代码？
 ```
-在八千行左右
+在5000  ~  8000 行左右
 ```
-##js脚本是每个页面多写一个吗？
+
+# js脚本是每个页面多写一个吗？
+
 ```
 可以每一个页面写一个js脚本。也可以写一个JS脚本文件直接引用。
 ```
-##２. call 方法和apply方法的区别?
+
+# call 方法和apply方法的区别?
+
 ```
 共同功能：绑定this值
 区别：apply和call的功能是一样的，只是传入的参数列表形式不同。
 apply ：可以接收数组，返回的结果是将数组进行拆分
 call : 可以接收多个单个参数
 ```
-=======
->>>>>>> 9dbe7db676dd1bba44437e425cb4a5f2b71ec1ae:mst/mianshi_zy.md
+
