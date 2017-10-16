@@ -203,13 +203,27 @@ connect 事件，当收到对方发来的数据后触发 message 事件（通常
 ** ajax封装 **
 封装时用到的参数：
 ```
-url 发送请求的地址
-data 发送到服务器的数据，数组存储，如：{"username": "张三", "password": 123456}
-succCallback 成功回调函数
-errorCallback 失败回调函数
-type 请求方式("POST" 或 "GET")， 默认已经设置为 "POST"
-dataType 预期服务器返回的数据类型，常用的如：xml、html、json、text
-reference jquery-1.7.1.js
+$(function(){
+        /**
+         * ajax封装
+         * url 发送请求的地址
+         * data 发送到服务器的数据，数组存储，如：{"username": "张三", "password": 123456}
+         * succCallback 成功回调函数
+         * errorCallback 失败回调函数
+         * type 请求方式("POST" 或 "GET")， 默认已经设置为 "POST"
+         * dataType 预期服务器返回的数据类型，常用的如：xml、html、json、text
+         * reference jquery-1.7.1.js
+         */
+
+        //插入loading
+        var html = "";
+            html += '<div class="js_loading">';
+            html +=     '<div class="mask"></div>';
+            html +=     '<div class="loading">';
+            html +=         '<span><img src="loading.gif"></span>';
+            html +=     '</div>';
+            html += '</div>';
+        $("body").append(html);
 
         function $ajax(url, postData, succCallback, errorCallback, type, dataType){
             var type = type || "post";
@@ -244,6 +258,58 @@ reference jquery-1.7.1.js
             });
         }
     });
+------------------------------------------------------------------------------------
+页面调用：
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>ajax再封装</title>
+<style>
+.js_loading{display:none;}
+.mask{background:rgba(255, 255, 255, 0);position:fixed;left:0;top:0;width:100%;height:100%;z-index:1;}
+.loading{position:fixed;left:0;top:0;width:100%;height:100%;z-index:2;display:box;box-pack:center;box-align:center;display:-webkit-box;-webkit-box-pack:center;-webkit-box-align:center;}
+.loading span{display:block;background:#333;width:40px;height:40px;border-radius:3px;text-align:center;}
+.loading img{width:26px;margin-top:7px;}
+</style>
+<script src="jquery-1.7.1.js"></script>
+</head>
+<body>
+<button type="button" class="btn">获取</button>
+<div class="box"></div>
+<script>
+    $(function(){
+        $(".btn").click(function(){
+            var postData = {
+                username: '张三',
+                password: 123456
+            };
+            $ajax(
+                'test.asp',
+                postData,
+                function(res){  //成功
+                    $(".box").html(res.firstName);
+                },
+                function(res){  //失败
+                    $(".box").html(res.fail);
+                }
+            );
+        });
+    });
+</script>       
+</body>
+</html>
+--------------------------------------------------------------------------
+请求页面test.asp
+
+{
+    "success":true,
+    "firstName":"获取成功！！！",
+    "lastName":"哈哈...",
+    "fail":"获取失败！！！"
+}
 
 ```
 ## 怎么实现分页
@@ -291,4 +357,9 @@ call : 可以接收多个单个参数
 ## 你还有什么想了解我们公司的吗？
 ```
 你们公司最近在做什么项目，主要用到些什么技术? 如果我上班 主要是负责那一块？ 你们公司最近有去探索什么新技术吗？
+```
+## 你们公司有哪些部门 多少人？
+```
+部门有：售电部门，财务部，综合部，人事部，DT事业部（包括-硬件组，软件组，工程组，商务组）
+我们公司总共30人左右，我们部门12人，软件组6人，3人前端3人后端，3人硬件组，1人工程组，2人商务组。
 ```
