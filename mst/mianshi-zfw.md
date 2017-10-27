@@ -16,7 +16,7 @@
 
  ### 5. 怎么判断一个引用是不是一个数组?
     *  用Array.isArray() 判断, 返回真为数组.
-    *  var b = {"name": "2"};
+    *  var b = [1,2];
        console.log((b.constructor == Array)); // 输出为true
 
  ### 6. instanceof 判断原理
@@ -26,12 +26,26 @@
     * 沿着A的__proto__这条线来找，同时沿着B的prototype这条线来找，如果两条线能找到同一个引用，即同一个对象，那么就返回true。如果找到终点还未重合，则返回false。
 
  ### 7. ES6 相对于 ES5 多出了什么内容?
-
+    * Block-Scoped Constructs Let and Const（块作用域构造Let and Const）
+    * Arrow Functions （箭头函数）in ES6
+    * Template Literals （模板文本）in ES6
+    * Multi-line Strings （多行字符串）in ES6
+    * Classes（类） in ES6
+    * Destructuring Assignment （解构赋值）in ES6
+    * Default Parameters（默认参数） in ES6
+    * Enhanced Object Literals （增强的对象文本）in ES6
+    * Promises in ES6
+    * Modules（模块） in ES6
 
  ### 8. 箭头函数特点(为什么用箭头函数?少写funtion外多出了什么特性?)
+    1.箭头函数的语法很简单
+    2.对 this 的关联。函数内置 this 的值，取决于箭头函数在哪儿定义，而非箭头函数执行的上下文环境。
+    3.new 不可用。箭头函数不能使用 new 关键字来实例化对象，不然会报错。
+    4.this 不可变。函数内置 this 不可变，在函数体内整个执行环境中为常量。
+    5.没有arguments对象。更不能通过arguments对象访问传入参数。只能使用显式命名或其他ES6新特性来完成。
 
  ### 9. 不用api,自己实现浅拷贝
-    ```
+    ```js
     const obj1 = {
       "name":"lisi",
        "age": 22,
@@ -50,9 +64,14 @@
      var obj2 = lowerCopy(obj1);
     ```
  ### 10. 浅拷贝和深拷贝实现各自思路
+    1.都利用遍历方法.
+    浅拷贝只是简单复制就行.
+    深拷贝除了遍历外,还要每一次遍历先判断是不是Object类型,"如果是,则采用递归拷贝一次,重复这样的操作.如果不是,则简单复制", 一直到遍历完.
+    [其他浅拷贝和深拷贝方法:] http://www.cnblogs.com/Chen-XiaoJun/p/6217373.html
+
 
  ### 11. 原生实现深拷贝
-  ```
+  ```js
   1 递归实现深拷贝
 
   function deepCopy (initObj, endObj) {
@@ -84,13 +103,119 @@ console.log(obj1);  //对象obj2.arr改变数据,但obj1.arr=[1,2,3] ,说明深�
   ```
 
  ### 12. http包熟悉情况, 头部有什么字段
+   [详细可以看链接:] http://www.jianshu.com/p/6e86903d74f7  
+
+   1.常用Request请求头字段:  
+
+    Accept 设置接受内容的类型:
+  * Accept: text/plain;
+
+    Accept-Charset 设置接受的字符编码:
+  * Accept-Charset: utf-8
+
+   Accept-Encoding 设置接受的编码格式:
+  * Accept-Encoding: gzip, deflate
+
+   Accept-Language 设置接受的语言:
+  * Accept-Language: zh-CN,zh;q=0.8
+
+  Authorization 设置HTTP身份验证的凭证:
+  * Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==
+
+  Content-Type 设置请求体的MIME类型:
+  * Content-Type: application/x-www-form-urlencoded
+
+  Upgrade-Insecure-Requests 标识服务器是否可以处理HTTPS协议:
+  *  Upgrade-Insecure-Requests: 1
+
+  User-Agent 用户代理的字符串值:
+  * User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:12.0) Gecko/20100101 Firefox/21.0
+
+  Referer 设置前一个页面的地址，并且前一个页面中的连接指向当前请求，意思就是如果当前请求是在A页面中发送的，那么referer就是A页面的url地址:
+  * Referer: http://en.wikipedia.org/wiki/Main_Page
+
+  Cookie 设置服务器使用Set-Cookie发送的http cookie:
+  *  Cookie: $Version=1; Skin=new;
+
+
+  2.响应Response 头部:
+  Connection 设置当前连接和hop-by-hop协议请求字段列表的控制选项:
+  * Connection: keep-alive
+
+  Content-Encoding 设置数据使用的编码类型:
+  * Content-Encoding: gzip
+
+  Content-Type 设置响应体的MIME类型:
+  * Content-Type: text/html; charset=utf-8
+
+  Date 设置消息发送的日期和时间:
+  * Date: Tue, 15 Nov 1994 08:12:31 GMT
+
+  Server 服务器名称:
+  * Server: Apache/2.4.1 (Unix)
+
+  Vary 通知下级代理如何匹配未来的请求头已让其决定缓存的响应是否可用而不是重新从源主机请求新的:
+  * Vary: accept-encoding
+
 
  ### 13. get 和 post 自定义头部
+ [详细可以看链接:] http://blog.csdn.net/javandroid/article/details/29884033
+ 以用google搜索domety为例，Request格式如下:
+ ```js
+   GET /search?hl=zh-CN&source=hp&q=domety&aq=f&oq= HTTP/1.1    
+  Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, application/vnd.ms-excel, application/vnd.ms-powerpoint,   
+  application/msword, application/x-silverlight, application/x-shockwave-flash, */*    
+  Referer: <a href="http://www.google.cn/">http://www.google.cn/</a>    
+  Accept-Language: zh-cn    
+  Accept-Encoding: gzip, deflate    
+  User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 2.0.50727; TheWorld)    
+  Host: <a href="http://www.google.cn">www.google.cn</a>    
+  Connection: Keep-Alive    
+  Cookie: PREF=ID=80a06da87be9ae3c:U=f7167333e2c3b714:NW=1:TM=1261551909:LM=1261551917:S=ybYcq2wpfefs4V9g;   
+  NID=31=ojj8d-IygaEtSxLgaJmqSjVhCspkviJrB6omjamNrSm8lZhKy_yMfO2M4QMRKcH1g0iQv9u-2hfBW7bUFwVh7pGaRUb0RnHcJU37y-  
+  FxlRugatx63JLv7CWMD6UB_O_r   
 
- ### 14. 跨域, ajax交互时, http头部有什么特性字段?
+  ```
+
+  ```js
+    POST /search HTTP/1.1    
+  Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, application/vnd.ms-excel, application/vnd.ms-powerpoint,   
+  application/msword, application/x-silverlight, application/x-shockwave-flash, */*    
+  Referer: <a href="http://www.google.cn/">http://www.google.cn/</a>    
+  Accept-Language: zh-cn    
+  Accept-Encoding: gzip, deflate    
+  User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 2.0.50727; TheWorld)    
+  Host: <a href="http://www.google.cn">www.google.cn</a>    
+  Connection: Keep-Alive    
+  Cookie: PREF=ID=80a06da87be9ae3c:U=f7167333e2c3b714:NW=1:TM=1261551909:LM=1261551917:S=ybYcq2wpfefs4V9g;   
+  NID=31=ojj8d-IygaEtSxLgaJmqSjVhCspkviJrB6omjamNrSm8lZhKy_yMfO2M4QMRKcH1g0iQv9u-2hfBW7bUFwVh7pGaRUb0RnHcJU37y-  
+  FxlRugatx63JLv7CWMD6UB_O_r    
+
+  hl=zh-CN&source=hp&q=domety  
+  ```
+
+ ### 14. 跨域, ajax交互时, http头部有什么特殊字段?
+ [链接:] http://blog.csdn.net/hu_feng903/article/details/70227953
+  ```
+  服务端设置响应头
+  header('Access-Control-Allow-Origin:*');  //支持全域名访问，不安全，部署后需要固定限制为客户端网址
+  header('Access-Control-Allow-Methods:POST,GET,OPTIONS,DELETE'); //支持的http 动作
+  header('Access-Control-Allow-Headers:x-requested-with,content-type');  //响应头 请按照自己需求添加。
+  ```
 
  ### 15. React 生命周期有哪些?(按组件加载顺序)
+ ```
+ 01 Mounting
+         |
+         `----getInitialState, componentWillMount, mounting, componentDidMount
+ 02 Updating
+         |
+         `----componentReceiveProps,shouldComponentUpdate, componentWillUpdate, Updating, componentDidUpate
+ 03 Unumounting
+         |
+         `----componentWillUnmount, Unmount
 
+ ```
  ### 16. 如果有异步,你会把它放到哪个生命周期部分让它执行?(或者说把它放    在ComponentDidMount和ComponentWillMount区别)
 
  ### 17. setState对api了解
@@ -98,7 +223,7 @@ console.log(obj1);  //对象obj2.arr改变数据,但obj1.arr=[1,2,3] ,说明深�
  ### 18. setState实现和特性
 
  ### 19. 初始化一个count = 1, 在后面触发一个事件调用handleChange方法, 这个方法连续执行3次setState, 问最后输出count结果
-  ```
+  ```js
  getInitialState: function(){
                     return {count: 1 };
                 },
@@ -116,12 +241,29 @@ console.log(obj1);  //对象obj2.arr改变数据,但obj1.arr=[1,2,3] ,说明深�
 
  ### 23. 移动端性能优化有哪些
 
+ ![优化图片](./youhua.jpg)   
+ [一枚链接:]http://tgideas.qq.com/webplat/info/news_version3/804/808/811/m579/201412/293834.shtml
+
  ### 24. 单从打包角度来说,过程有哪些来提升文件效率(或者说打包过程中,配置文件,有什么作用)
 
  ### 25. node.js怎么删除一个文件?
+ ```js
+  1 删除文件:
+    var fs = require('fs');
+    fs.unlink(filepath,callback);
+  2 删除文件夹
+  var fs = require('fs');
+var tmpDir = './tmp';
+var mode = 493;    // parseInt(755, 8)
+  fs.mkdir(tmpDir, mode, function(err) {
+      if(err){
+        console.log(err);
+      }
+    });
+  ```
 
  ### 26. mongodb 数据库缓存有没有涉猎?(有没有什么接口缓存)
-
+删除文件夹
  ### 27. 写css 时, 有什么要注意的(在项目有大量css代码时这种情况)
 
  ### 28. 在渲染过程中, 一个标签嵌套多个标签,多了会出现什么结果(比如: 一个标签嵌套2个标签, 另一个标签嵌套3个标签)
