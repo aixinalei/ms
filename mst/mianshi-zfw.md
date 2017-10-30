@@ -8,11 +8,16 @@
     * 简单类型数据存放在栈内存中, 引用类型数据存在在堆内存中
 
 
- ### 3. 函数对象跟原生对象有哪些不一样地方,或者说少了什么东西?
-
-
+ ### 3. 函数对象跟原生对象有哪些不一样地方,或者说少了什么东西?   
+ ```js
+    //函数对象通过new Funtion() 构造出来, 原生对象是通过new Object()构造出来.
+    const fn = new Function();
+    const obj = new Object();
+    console.log(fn);
+    console.log(obj);  
+```
  ### 4. 函数对象有什么属性和方法?
-
+    
 
  ### 5. 怎么判断一个引用是不是一个数组?
     *  用Array.isArray() 判断, 返回真为数组.
@@ -45,30 +50,30 @@
     5.没有arguments对象。更不能通过arguments对象访问传入参数。只能使用显式命名或其他ES6新特性来完成。
 
  ### 9. 不用api,自己实现浅拷贝
-    ```js
-    const obj1 = {
-      "name":"lisi",
-       "age": 22,
-     "arr": [1,2,3]};
 
-     function lowerCopy(obj) {
-        const ob = {};
-        for(var elem in obj ){
-          if(obj.hasOwnProperty(elem)) {
-            ob[elem] = obj[elem];
-          }
-        }
-        return ob;
-     };
+```js
+const obj1 = {
+  "name":"lisi",
+   "age": 22,
+ "arr": [1,2,3]};
 
-     var obj2 = lowerCopy(obj1);
-    ```
+ function lowerCopy(obj) {
+    const ob = {};
+    for(var elem in obj ){
+      if(obj.hasOwnProperty(elem)) {
+        ob[elem] = obj[elem];
+      }
+    }
+    return ob;
+ };
+
+ var obj2 = lowerCopy(obj1);
+```
  ### 10. 浅拷贝和深拷贝实现各自思路
     1.都利用遍历方法.
     浅拷贝只是简单复制就行.
     深拷贝除了遍历外,还要每一次遍历先判断是不是Object类型,"如果是,则采用递归拷贝一次,重复这样的操作.如果不是,则简单复制", 一直到遍历完.
-    [其他浅拷贝和深拷贝方法:] http://www.cnblogs.com/Chen-XiaoJun/p/6217373.html
-
+    [详细可以看链接:]http://www.cnblogs.com/Chen-XiaoJun/p/6217373.html
 
  ### 11. 原生实现深拷贝
   ```js
@@ -84,7 +89,7 @@
     }     
 
     if(typeof initObj[i] == 'object') {
-      initObj[i].constructor === Array ? [] : {};
+      obj[i] = (initObj[i].constructor === Array) ? [] : {};
       arguments.callee(initObj[i], obj[i]); //包含当前执行函数,用于递归调用
     }
     else {
@@ -159,8 +164,9 @@ console.log(obj1);  //对象obj2.arr改变数据,但obj1.arr=[1,2,3] ,说明深�
 
 
  ### 13. get 和 post 自定义头部
- [详细可以看链接:] http://blog.csdn.net/javandroid/article/details/29884033
- 以用google搜索domety为例，Request格式如下:
+ [链接:] http://blog.csdn.net/javandroid/article/details/29884033
+ 以用google搜索domety为例，Request格式如下:   
+ [简书:] http://www.jianshu.com/p/6e86903d74f7
  ```js
    GET /search?hl=zh-CN&source=hp&q=domety&aq=f&oq= HTTP/1.1    
   Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, application/vnd.ms-excel, application/vnd.ms-powerpoint,   
@@ -253,17 +259,31 @@ console.log(obj1);  //对象obj2.arr改变数据,但obj1.arr=[1,2,3] ,说明深�
     fs.unlink(filepath,callback);
   2 删除文件夹
   var fs = require('fs');
-var tmpDir = './tmp';
-var mode = 493;    // parseInt(755, 8)
-  fs.mkdir(tmpDir, mode, function(err) {
-      if(err){
-        console.log(err);
-      }
-    });
+ fs.rmdir(dirname, callback);
   ```
 
- ### 26. mongodb 数据库缓存有没有涉猎?(有没有什么接口缓存)
-删除文件夹
+ ### 26. mongodb 数据库缓存有没有涉猎?(有没有什么接口缓存)  
+ [链接:] http://www.cnblogs.com/Fredric-2013/p/4520134.html  
+
+      参考了mongoose-redis-cache这个插件, 初始化一个redis客户端，然后重写mongoose的exec方法，将exec的参数设置为redis的key，将数据库返回的结果设置为对应的value。
+
  ### 27. 写css 时, 有什么要注意的(在项目有大量css代码时这种情况)
+ [链接]http://www.jianshu.com/p/e44ff354933f  
+ 会注意对css代码进行重构:
+
+  提高CSS性能：
+    * 尽量将样式写在单独的css文件里面，在head元素中引用
+    * 不使用@import
+    * 避免使用复杂的选择器，层级越少越好
+    * 精简页面的样式文件，去掉不用的样式
+    * 利用CSS继承减少代码量
+
+   提高可维护性：
+    * 良好命名和备注
+    * 提取重复样式
 
  ### 28. 在渲染过程中, 一个标签嵌套多个标签,多了会出现什么结果(比如: 一个标签嵌套2个标签, 另一个标签嵌套3个标签)
+ [链接:]http://lib.csdn.net/article/html5/48259    
+ ```html
+ <div>1 <div>2</div><div>3</div></div>   //先显示3，然后2， 最后1  
+ ```
