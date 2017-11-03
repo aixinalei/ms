@@ -17,7 +17,7 @@
     console.log(obj);  
 ```
  ### 4. 函数对象有什么属性和方法?
-    
+
 
  ### 5. 怎么判断一个引用是不是一个数组?
     *  用Array.isArray() 判断, 返回真为数组.
@@ -43,7 +43,7 @@
     * Modules（模块） in ES6
 
  ### 8. 箭头函数特点(为什么用箭头函数?少写funtion外多出了什么特性?)
-    1.箭头函数的语法很简单
+    1.箭头函数的语法写法很简单
     2.对 this 的关联。函数内置 this 的值，取决于箭头函数在哪儿定义，而非箭头函数执行的上下文环境。
     3.new 不可用。箭头函数不能使用 new 关键字来实例化对象，不然会报错。
     4.this 不可变。函数内置 this 不可变，在函数体内整个执行环境中为常量。
@@ -222,11 +222,16 @@ console.log(obj1);  //对象obj2.arr改变数据,但obj1.arr=[1,2,3] ,说明深�
          `----componentWillUnmount, Unmount
 
  ```
- ### 16. 如果有异步,你会把它放到哪个生命周期部分让它执行?(或者说把它放    在ComponentDidMount和ComponentWillMount区别)
+ ### 16. 如果有异步,你会把它放到哪个生命周期部分让它执行?(或者说把它放在ComponentDidMount和ComponentWillMount区别)
+        * 把异步请求如 ajax 放在 ComponentDidMount函数里面
 
  ### 17. setState对api了解
+        * this.setState(xxx) 修改时异步的操作，不一定会立刻更新
+        * react会将 多个setState进行合并，分批处理，因此多个setState可能只更新一次
+        * this.setState是浅合并修改
 
  ### 18. setState实现和特性
+        * 和17题是同一个问题
 
  ### 19. 初始化一个count = 1, 在后面触发一个事件调用handleChange方法, 这个方法连续执行3次setState, 问最后输出count结果
   ```js
@@ -239,11 +244,17 @@ console.log(obj1);  //对象obj2.arr改变数据,但obj1.arr=[1,2,3] ,说明深�
                     this.setState({count: count +1});
                 },
   ```
+        * 结果是: count = 2;
+
  ### 20. 上面结果为count = 1 的原因 , 为什么setState只渲染了一次
+        * 答案在第17题
 
  ### 21. 同时使用 React 和bootstrap, 你是怎么结合的?
+        * 使用React-bootstrap
 
  ### 22. 在React 使用的ui有哪些? Sementic 是基于什么做的?
+        * React-Bootstrap , Material-UI , React Desktop , Semantic-UI-React ,  Ant-design , Blueprint ....
+        [链接:] http://www.iteye.com/news/32408
 
  ### 23. 移动端性能优化有哪些
 
@@ -251,7 +262,13 @@ console.log(obj1);  //对象obj2.arr改变数据,但obj1.arr=[1,2,3] ,说明深�
  [一枚链接:]http://tgideas.qq.com/webplat/info/news_version3/804/808/811/m579/201412/293834.shtml
 
  ### 24. 单从打包角度来说,过程有哪些来提升文件效率(或者说打包过程中,配置文件,有什么作用)
-
+        * 去除不必要的插件
+        * 提取第三方库
+        * 代码压缩
+        * 代码分割
+        * 设置缓存
+        [链接:] http://www.jianshu.com/p/a64735eb0e2b
+        
  ### 25. node.js怎么删除一个文件?
  ```js
   1 删除文件:
