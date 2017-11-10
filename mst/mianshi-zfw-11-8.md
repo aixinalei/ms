@@ -2,6 +2,40 @@
 ## 内容
 ### 1. 完整javascript代码，实现1x2+2x3+3x4+4x5........96x97+97x98+98x99+99x100x101结果?  
 ```js
+    //方法一:
+      function   Sum (n) {
+        let num = 0;
+        for(let i=1;i<(n-1);i++){
+          num += i*(i+1);
+        };
+        return num + n*(n-1)*(n+1);
+      };
+    console.log(Sum(100)) //结果: 1323300
+
+   //方法二:
+
+    function SS(m) {
+      function S (n) {
+        if(n==2) {
+          console.log("1 x 2");
+          return 1*2;
+        };
+        return (n-1)*n + S(n-1);
+      };
+      return S(m-1) + m*(m-1)*(m+1);
+    }
+
+  console.log(SS(100)); // 结果: 1323300
+
+```
+
+### 2. 排序有哪些方法，用javascript实现其中一个排序的方法？
+
+
+
+
+### 3. 用javascript 方法使数组去重?
+```js
   /*
     功能: 实现数组去重
     array: 要去重的数组
@@ -12,20 +46,17 @@
       return array
     }
     let newarray =[];
-    for (let i of array) {
-      if(newarray.include(array[i]) == -1) {
-        newarray[i] = array[i];
+    for (let i in array) {
+      if(newarray.includes(array[i]) == false) {
+        newarray.push(array[i]);
       }
-      return newarray
     }
-
+    return newarray;
   }
-  
-```
 
-### 2. 排序有哪些方法，用javascript实现其中一个排序的方法？
-
-### 3. 用javascript 方法使数组去重?   
+  const a = [1,2,3,3,3,5,6,7];
+  console.log(filterSame(a)) //结果 [1,2,3,5,6,7]
+```    
 
 ### 4. var foo  ={n: 1 }   var  bar  = foo   foo.x  = foo={n:  2 }  问foo.x?
 
