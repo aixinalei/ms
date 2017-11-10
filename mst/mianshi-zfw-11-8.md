@@ -100,7 +100,7 @@
 
 
 ### 7. 实现页面性能优化方法
-  [优化图片](./youhua.jpg)   
+  ![优化图片](./youhua.jpg)   
   [一枚链接:]http://tgideas.qq.com/webplat/info/news_version3/804/808/811/m579/201412/293834.shtml
 
 ### 8. 什么是响应式设计，响应式方式实现基本原理是什么
