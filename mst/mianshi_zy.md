@@ -1,8 +1,8 @@
-## App打包
+            ## App打包
 ```
 答案：http://jingyan.baidu.com/article/c45ad29c2ffc1e051653e272.html
 ```
-## js基本数据类型
+## js数据类型
 ```
 String Number Boolean Object Undefined Function Null
 ```
@@ -440,4 +440,40 @@ z-index有一个层级的关系，设的值越大，层级也就越高！
 ## ES6异步方法
 ```
 回调函数Function,Generator,Thunk 函数,co 模块
+```
+## 浏览器的对象
+```
+window,document,history
+
+Window对象是整个BOM的核心对象，
+在window对主要常用的三个对象分别是：history（历史对象），document（文档对象），location（地址对象）；
+
+document包括: link(超链接),form(表单)，anchor（锚）等。
+表单由文本框（text）、单选按钮（radio）、按钮（button）等表单元素组成。
+
+history（历史对象）和location（地址对象），他们对应于浏览器中的地址栏和前进/后退按钮。
+```
+## window 跟 document的区别
+```
+所有的全局函数和对象都属于Window 对象的属性和方法。
+document是window的一个对象属性
+document对Document对象的只读引用
+```
+## DOM0和DOM2区别
+```
+DOM事件添加方式:
+DOM0无法指定多个处理函数
+obj.onclick=function(event){.....}
+DOM0移除处理函数:
+obj.onclick = null;
+
+DOM2
+添加事件:obj.addEventListener("事件名","函数名","布尔值");
+移除事件:obj.removeEventListener("事件名","函数名","布尔值")
+false:事件冒泡;//事件由内向外进行传递!!!!!!
+true:事件捕获;//事件由外向内传递!!!!!!
+停止事件传播:event.stopPropagation();
+IE事件处理程序(ie8以下)
+obj.attachEvent("on函数名","事件处理函数");
+obj.detachEvent("on函数名","事件处理函数");
 ```
