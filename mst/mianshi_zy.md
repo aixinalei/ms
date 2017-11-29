@@ -477,3 +477,44 @@ IE事件处理程序(ie8以下)
 obj.attachEvent("on函数名","事件处理函数");
 obj.detachEvent("on函数名","事件处理函数");
 ```
+## 前端页面有那三层构成？作用是什么？
+```
+网页分成三个层次，即：结构层、表示层、行为层。
+网页的结构层（structural layer）由 HTML 或 XHTML 之类的标记语言负责创建。标签，也就是那些出现在尖括号里的单词，对网页内容的语义含义做出了描述，但这些标签不包含任何关于如何显示有关内容的信息。例如，P 标签表达了这样一种语义：“这是一个文本段。”
+网页的表示层（presentation layer） 由 CSS 负责创建。 CSS 对“如何显示有关内容”的问题做出了回答。
+网页的行为层（behavior layer）负责回答“内容应该如何对事件做出反应”这一问题。这是 Javascript 语言和 DOM 主宰的领域。
+```
+## 描述一下cookies sessionStorage和localStorage的区别？
+```
+共同点：都是保存在浏览器端，且同源的。
+区别：cookie数据始终在同源的http请求中携带（即使不需要），即cookie在浏览器和服务器间来回传递。
+而sessionStorage和localStorage不会自动把数据发给服务器，仅在本地保存。cookie数据还有路径（path）的概念，可以限制cookie只属于某个路径下。
+存储大小限制也不同，cookie数据不能超过4k，同时因为每次http请求都会携带cookie，所以cookie只适合保存很小的数据，如会话标识。sessionStorage和localStorage 虽然也有存储大小的限制，但比cookie大得多，可以达到5M或更大。数据有效期不同，sessionStorage：仅在当前浏览器窗口关闭前有效，自然也就不可能持久保持；localStorage：始终有效，窗口或浏览器关闭也一直保存，因此用作持久数据；cookie只在设置的cookie过期时间之前一直有效，即使窗口或浏览器关闭。作用域不同，sessionStorage不在不同的浏览器窗口中共享，即使是同一个页面；localStorage 在所有同源窗口中都是共享的；cookie也是在所有同源窗口中都是共享的。Web Storage 支持事件通知机制，可以将数据更新的通知发送给监听者。Web Storage 的 api 接口使用更方便。
+```
+
+##　如何实现浏览器内多个标签页之间的通讯
+```
+WebSocket、SharedWorker；
+也可以调用localstorge、cookies等本地存储方式；
+localstorge另一个浏览上下文里被添加、修改或删除时，它都会触发一个事件，
+我们通过监听事件，控制它的值来进行页面信息通信；
+```
+##　简要说明CSS3的元素分类
+```
+内联样式:
+<div style="width:200px;height:30px;"></div>
+
+内部样式:
+<style>
+    .box{width:200px;height:30px;}
+</style>
+<div class="box"></div>
+
+外部样式:
+<link href="css文件路径" rel="stylesheet" media="screen" />
+```
+##　css选择器有哪些，优先级如何计算的
+```
+标签选择器,类选择器,ID选择器,,并集选择器,交集选择器,通配选择器,后代选择器,子选择器,相邻选择器,伪类选择器
+标签选择器(+1)<类选择器(+10)<ID选择器(100)    !important(优先级最高)
+```
