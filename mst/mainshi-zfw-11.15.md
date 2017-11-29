@@ -246,19 +246,24 @@ function Clone(data) {
       this.score = score;
     }
   3. 组合继承.
-  function Student3(name,age,score) {
+      function inherit(person, student){
+      function Fun(){};
+      Fun.prototype = person.prototype;
+      student.prototype = new Fun();
+      student.prototype.constructor = student ;
+    }
+
+
+    function Student(name,age,score) {
       Person.call(this,name,age);
       this.score = score;
     }
-
-    Student3.prototype = new Person();
-    Student3.prototype.constructor = Student;
-
+    inherit(Person,Student);
 
 ```
 
 ### 26. 试用编码的方式实现一个数据双向调用  
-    [链接:]https://segmentfault.com/a/1190000006599500
+    [链接:] https://segmentfault.com/a/1190000006599500
 ### 27. 下面有一个调用模板字符串,生成正式模板的实例,怎么编译这个模板字符串呢?请用末班字符串的编码方式实现?
 ```js
 let template = `
