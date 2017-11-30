@@ -79,8 +79,8 @@
 答:用通配符*来设置各个标签的内外补丁是0或者用!important解决
 Firefox中：容器占的宽度=内容宽度+padding宽度+border宽度
 IE中：内容宽度=您定义的容器宽度(Internet Explorer ’width’)-padding宽度-border宽度 ;
-注意:如果IE中定义 width:120px;padding:5px 的话，所显示的宽度就是120px.即padding:5px是在width里面。而Firefox中，上面这个定义，
-显示宽度就是 125 px;
+注意:如果IE中定义 width:120px;padding:5px 的话，所显示的宽度就是120px.
+即padding:5px是在width里面。而Firefox中，上面这个定义，显示宽度就是 125 px;
 ```
 
 ### 如何解决例如tech.QQ.com 和 web.QQ.com 之间的跨域登录信息问题?
